@@ -9,6 +9,6 @@ class PersonSeeder extends Seeder
 {
     public function run()
     {
-        Person::factory(10)->create();
+        Person::factory(50)->create();
     }
 }

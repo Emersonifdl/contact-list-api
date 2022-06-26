@@ -13,8 +13,9 @@ class PersonController extends Controller
     {
         return PersonIndexResource::collection(
             Person::query()
+            ->search(request('search'))
             ->orderBy('name', 'asc')
-            ->paginate()
+            ->paginate(10)
         );
     }
 
