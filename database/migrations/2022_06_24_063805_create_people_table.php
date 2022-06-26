@@ -10,8 +10,9 @@ return new class extends Migration {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->string('role', 100);
             $table->string('avatar', 150)->nullable();
-            $table->boolean('is_favorite')->default(false);
+            $table->boolean('favorite')->default(false);
             $table->timestamps();
         });
     }

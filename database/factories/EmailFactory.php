@@ -10,7 +10,7 @@ class EmailFactory extends Factory
     {
         return [
             'address'   => $this->faker->freeEmail(),
-            'type'      => 'mobile',
+            'type'      => 'Work',
             'person_id' => $this->faker->numberBetween(1, 10),
         ];
     }

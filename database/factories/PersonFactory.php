@@ -27,9 +27,10 @@ class PersonFactory extends Factory
         ];
 
         return [
-            'name'        => $this->faker->firstName() . ' ' . $this->faker->lastName(),
-            'avatar'      => $baseAvatarUrl . $this->faker->randomElement($avatars),
-            'is_favorite' => $this->faker->boolean(40),
+            'name'     => $this->faker->firstName() . ' ' . $this->faker->lastName(),
+            'role'     => $this->faker->jobTitle(),
+            'avatar'   => $baseAvatarUrl . $this->faker->randomElement($avatars),
+            'favorite' => $this->faker->boolean(40),
         ];
     }
 }

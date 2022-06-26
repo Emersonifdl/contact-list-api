@@ -11,7 +11,7 @@ class Person extends Model
     use HasFactory;
 
     protected $casts = [
-        'is_favorite' => 'boolean',
+        'favorite' => 'boolean',
     ];
 
     protected $guarded = [
@@ -20,9 +20,14 @@ class Person extends Model
         'updated_at',
     ];
 
-    public function contacts(): HasMany
+    public function phones(): HasMany
     {
-        return $this->hasMany(Contact::class);
+        return $this->hasMany(Phone::class);
+    }
+
+    public function emails(): HasMany
+    {
+        return $this->hasMany(Email::class);
     }
 
     public function scopeSearch(Builder $query,  ?string $search): Builder

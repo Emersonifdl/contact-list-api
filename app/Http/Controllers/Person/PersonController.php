@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Person\{PersonStoreRequest, PersonUpdateRequest};
 use App\Http\Resources\Person\{PersonIndexResource, PersonShowResource};
 use App\Models\Person;
+use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
@@ -23,6 +24,9 @@ class PersonController extends Controller
     {
         $person = Person::create($request->validated());
 
+        $person->phones()->createMany($request->phones);
+        $person->emails()->createMany($request->emails);
+
         return PersonShowResource::make($person);
     }
 
@@ -33,9 +37,23 @@ class PersonController extends Controller
 
     public function update(PersonUpdateRequest $request, Person $person)
     {
-        $person->update($request->validated());
+        $personUpdated = DB::transaction(function () use ($person, $request) {
+            $person->update($request->validated());
 
-        return PersonShowResource::make($person);
+            if ($request->phones) {
+                $person->phones()->delete();
+                $person->phones()->createMany($request->phones);
+            }
+
+            if ($request->emails) {
+                $person->emails()->delete();
+                $person->emails()->createMany($request->emails);
+            }
+
+            return $person;
+        });
+
+        return PersonShowResource::make($personUpdated);
     }
 
     public function destroy(Person $person)

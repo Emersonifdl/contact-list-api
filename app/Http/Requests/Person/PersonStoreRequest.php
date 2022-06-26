@@ -9,9 +9,10 @@ class PersonStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => ['required', 'string', 'max:100'],
-            'avatar'      => ['filled', 'string', 'max:150', 'url'],
-            'is_favorite' => ['filled', 'boolean'],
+            'name'     => ['required', 'string', 'max:100'],
+            'role'     => ['required', 'string', 'max:100'],
+            'avatar'   => ['filled', 'string', 'max:150', 'url'],
+            'favorite' => ['filled', 'boolean'],
         ];
     }
 }
