@@ -1,14 +1,14 @@
-# BalancedBrackets
+# Contact List - Api
 
-> This algorithm takes a string of brackets as the input, and determines if the order of the
-> brackets is valid. A bracket is considered to be any one of the following characters: (, ),
-> {, }, [, or ].
+> A REST API which will store people and their contacts. A person can have multiple
+> contacts such as phone, email or whatsapp. The API should allow to create, update, get and
+> delete both the people and the contacts.
 
 ## 💻 Prerequisites
 
 The BalancedBrackets has a requirements:
 
--   `PHP >= 7`
+-   `docker`
 
 ## 🚀 Installation
 
