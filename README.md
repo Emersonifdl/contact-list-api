@@ -4,12 +4,6 @@
 > contacts such as phone, email or whatsapp. The API should allow to create, update, get and
 > delete both the people and the contacts.
 
-## 💻 Prerequisites
-
-The BalancedBrackets has a requirements:
-
--   `docker`
-
 ## 🚀 Installation
 
 Clone the repository:
