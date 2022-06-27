@@ -1,4 +1,4 @@
-# Contact List - Api
+# contact-list-api
 
 > A REST API which will store people and their contacts. A person can have multiple
 > contacts such as phone, email or whatsapp. The API should allow to create, update, get and
